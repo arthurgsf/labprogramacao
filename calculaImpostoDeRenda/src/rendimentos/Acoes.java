@@ -1,8 +1,11 @@
 package rendimentos;
 
+import java.time.LocalDate;
+
 public class Acoes extends Rendimento {
 
-	public Acoes() {
+	public Acoes(double valorInicial, double valorFinal, LocalDate dataInicial, LocalDate dataFinal) {
+		super(valorInicial, valorFinal, dataInicial, dataFinal);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -11,5 +14,4 @@ public class Acoes extends Rendimento {
 		// TODO Auto-generated method stub
 		return this.calcularLucro() * 0.15;
 	}
-
 }

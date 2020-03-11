@@ -1,8 +1,11 @@
 package rendimentos;
 
+import java.time.LocalDate;
+
 public class FundoInvestimento extends Rendimento {
 
-	public FundoInvestimento() {
+	public FundoInvestimento(double valorInicial, double valorFinal, LocalDate dataInicial, LocalDate dataFinal) {
+		super(valorInicial, valorFinal, dataInicial, dataFinal);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -10,6 +13,5 @@ public class FundoInvestimento extends Rendimento {
 	double calcularImposto() {
 		// TODO Auto-generated method stub
 		return this.calcularLucro() * 0.15;
-	}
-
+	}	
 }

@@ -1,6 +1,7 @@
 package rendimentos;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 /**
  *
  * @author arthur.gsf
@@ -8,15 +9,27 @@ import java.util.Date;
 public abstract class Rendimento {
     private double valorAplicacao;
     private double valorRendimento;
-    private Date dataAplicacao;
-    private Date dataRendimento;
-    public Rendimento(){
+    private LocalDate dataAplicacao;
+    private LocalDate dataRendimento;
+    
+    public Rendimento(double valorInicial, double valorFinal, LocalDate dataInicial, LocalDate dataFinal){
+		valorAplicacao = valorInicial;
+        valorRendimento = valorFinal;
+        dataAplicacao = dataInicial;
+        dataRendimento = dataFinal;
     }
+    
     abstract double calcularImposto();
     
     double calcularLucro(){
         return getValorRendimento() - getValorAplicacao();
     }
+    
+    @Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return String.format("Ações\nAplicaçãoInicial: R$ %.2f  -  Rendimento: R$ %.2f  -  Lucro: R$ %.2f\nImposto Pago: R$ %.2f  -  Lucro Líquido: R$ %.2f", this.getValorAplicacao(), this.getValorRendimento(), this.calcularLucro(), this.calcularImposto(), this.calcularLucro() - this.calcularImposto());
+	}
 
     /**
      * @return the valorAplicacao
@@ -49,28 +62,28 @@ public abstract class Rendimento {
     /**
      * @return the dataAplicacao
      */
-    public Date getDataAplicacao() {
+    public LocalDate getDataAplicacao() {
         return dataAplicacao;
     }
 
     /**
      * @param dataAplicacao the dataAplicacao to set
      */
-    public void setDataAplicacao(Date dataAplicacao) {
+    public void setDataAplicacao(LocalDate dataAplicacao) {
         this.dataAplicacao = dataAplicacao;
     }
 
     /**
      * @return the dataRendimento
      */
-    public Date getDataRendimento() {
+    public LocalDate getDataRendimento() {
         return dataRendimento;
     }
 
     /**
      * @param dataRendimento the dataRendimento to set
      */
-    public void setDataRendimento(Date dataRendimento) {
+    public void setDataRendimento(LocalDate dataRendimento) {
         this.dataRendimento = dataRendimento;
     }
 }
